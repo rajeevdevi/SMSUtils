@@ -6,9 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-/**
- * Created by pradeep on 25/03/16.
- */
+
 public class SMSUtils {
     /*
     SMSUtils class contains all methods to manage or search messages in inbox.
