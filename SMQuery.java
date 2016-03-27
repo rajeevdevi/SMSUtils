@@ -1,6 +1,5 @@
 package com.appdvaya.smsapp.myapplication;
 
-
 public class SMQuery {
 
 
@@ -31,10 +30,12 @@ public class SMQuery {
     }
 
     public String getContactNameToSearch() {
+
         return contactName;
     }
 
     public void setContactNameToSearch(String contactName) {
+
         this.contactName = contactName;
     }
 

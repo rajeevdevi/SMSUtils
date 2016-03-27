@@ -1,8 +1,6 @@
 package com.appdvaya.smsapp.myapplication;
 
-
 public class SMMessage {
-
 
     private String message;
     private String phoneNumber;
@@ -32,7 +30,6 @@ public class SMMessage {
     public void setContactName(String contactName) {
         this.contactName = contactName;
     }
-
 
     public String getDate() {
         return date;

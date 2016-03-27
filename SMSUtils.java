@@ -11,11 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
-public class SMSUtils {
-    /*
+/*
     SMSUtils class contains all methods to manage or search messages in inbox.
-     */
+ */
+public class SMSUtils {
 
     public static void deleteSMS(Context context, SMMessage message) {
         try {
@@ -38,7 +37,7 @@ public class SMSUtils {
                     if (address.contains(message.getPhoneNumber())) {
                         int rows = context.getContentResolver().delete(Uri.parse("content://sms/" + id), "date=?", new String[]{c.getString(4)});
                     } else {
-                        Log.e("Log", "Delete fail........ rows: " + address);
+
                     }
                 } while (c.moveToNext());
             }
@@ -63,7 +62,6 @@ public class SMSUtils {
                     String body = c.getString(5);
                     String date = c.getString(4);
                     String name = c.getString(3);
-
                     ContentValues values = new ContentValues();
                     values.put("read", true);
                     context.getContentResolver().update(Uri.parse("content://sms/"), values, "_id=" + id, null);
@@ -80,8 +78,6 @@ public class SMSUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         return messageList;
     }
 
@@ -91,11 +87,9 @@ public class SMSUtils {
         for (int i = 0; i < messageList.size(); i++) {
             if (smQuery.getPhoneNumberToSearch().equals(messageList.get(i).getPhoneNumber())) {
                 break;
-            }
-            else {
+            } else {
                 return false;
             }
-
         }
         return true;
     }
@@ -103,12 +97,10 @@ public class SMSUtils {
 
     public static boolean getSMSForName(Context context, SMQuery smQuery) {
         ArrayList<SMMessage> messageList = getMessageList(context);
-
         for (int i = 0; i < messageList.size(); i++) {
             if (smQuery.getContactNameToSearch().equals(messageList.get(i).getContactName())) {
                 break;
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -117,14 +109,12 @@ public class SMSUtils {
 
     public static boolean getSMSForDate(Context context, SMQuery smQuery) {
         ArrayList<SMMessage> messageList = getMessageList(context);
-
         for (int i = 0; i < messageList.size(); i++) {
             Date date = new Date(messageList.get(i).getDate());
             String formattedDate = new SimpleDateFormat("MM/dd/yyyy").format(date);
             if (smQuery.getContactNameToSearch().equals(formattedDate)) {
                 break;
-            }
-            else {
+            } else {
                 return false;
             }
         }
